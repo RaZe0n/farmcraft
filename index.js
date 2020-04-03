@@ -46,7 +46,7 @@ bot.on("guildMemberAdd", (member) =>{
     //  .setDescription("Veel plezier!")
     //  .setColor("#2357E8");
 
-    var welcomeChannel = member.guild.channels.find("name", "botlogs");
+    const welcomeChannel = member.guild.channels.find("name", "botlogs");
     //welcomeChannel.send(joinEmbed);
     welcomeChannel.send("test");
 
