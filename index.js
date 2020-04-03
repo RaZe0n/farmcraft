@@ -38,16 +38,16 @@ bot.on("ready", async () => {
   bot.user.setActivity("Getting developed", {type: "WATCHING"});
 })
 
-bot.on('guildMemberAdd', member =>{
+bot.on("guildMemberAdd", member =>{
 
     //Join message embed
-    var joinEmbed = new discord.MessageEmbed()
-      .setTitle(`Welkom op de server ${message.author.username}!`)
-      .setDescription("Veel plezier!")
-      .setColor("#2357E8");
+    //var joinEmbed = new discord.MessageEmbed()
+    //  .setTitle(`Welkom op de server ${message.author.username}!`)
+    //  .setDescription("Veel plezier!")
+    //  .setColor("#2357E8");
 
-    var welcomeChannel = member.guild.channels.find("id", "695687937886650409");
-    welcomeChannel.send(joinEmbed);
+    var welcomeChannel = member.guild.channels.find("name", "botlogs");
+    //welcomeChannel.send(joinEmbed);
     welcomeChannel.send("test");
 
 });
