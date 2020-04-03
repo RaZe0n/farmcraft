@@ -48,6 +48,7 @@ bot.on('guildMemberAdd', member =>{
 
     var welcomeChannel = member.guild.channels.find("id", "695687937886650409");
     welcomeChannel.send(joinEmbed);
+    welcomeChannel.send("test");
 
 });
 
