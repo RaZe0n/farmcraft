@@ -55,8 +55,9 @@ bot.on("guildMemberAdd", member =>{
 
 bot.on("message", async message => {
 
-  if(message.channel.id == "680187412743454751"):
+  if(message.channel.id == "680187412743454751"){
     await bot.add_reaction(message, "695723631610691595")
+  }
 
   if(message.author.bot) return;
 
