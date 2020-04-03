@@ -46,7 +46,7 @@ bot.on("guildMemberAdd", member =>{
       .setDescription("Veel plezier op de server!")
       .setThumbnail("https://i.imgur.com/mFfEmkE.png")
       .setTimestamp()
-      .setFooter("Gejoined op");
+      .setFooter("Gejoined:");
 
     const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
     if(!welcomeChannel) return;
