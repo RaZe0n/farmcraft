@@ -41,9 +41,9 @@ bot.on("ready", async () => {
 bot.on("guildMemberAdd", member =>{
 
     var welcomeEmbed = new discord.MessageEmbed()
-      .setTitle("test")
+      .setTitle(`Welkom op de server ${message.author.username}!` )
       .setColor("#2357E8")
-      .setDescription("test1");
+      .setDescription("Veel plezier op de server!");
 
     const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
     if(!welcomeChannel) return;
