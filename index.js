@@ -56,11 +56,11 @@ bot.on("guildMemberAdd", member =>{
 });
 
 
-const { Client } = require("discord.js");
-const bota = new Client();
+    const { Client } = require("discord.js");
+    const bota = new Client();
 
 bota.on("message", message => {
- if(message.channel.id === "695765656921964555") message.react("🟥");
+    if(message.channel.id === "695765656921964555") message.react("🟥");
 
 
 
@@ -114,5 +114,5 @@ bota.on("message", message => {
   //  })
 
 //  }
-}
+
 bot.login(token);
