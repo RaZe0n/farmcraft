@@ -44,8 +44,7 @@ bot.on("guildMemberAdd", member =>{
       .setTitle(`Welkom op de server ${member.user.username}!` )
       .setColor("#f16411")
       .setDescription("Veel plezier op de server!")
-      .setThumbnail("https://imgur.com/a/Mk3DzNN.png")
-      .setImage("https://imgur.com/a/Mk3DzNN.png");
+      .setThumbnail("https://imgur.com/a/Mk3DzNN");
 
     const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
     if(!welcomeChannel) return;
