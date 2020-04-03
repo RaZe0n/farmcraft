@@ -39,7 +39,7 @@ bot.on("ready", async () => {
 })
 
 bot.on('guildMemberAdd', member =>{
-    const channel = member.guild.channel.find(channel => channel.name === "welkom")
+    const welkomchannel = member.guild.channel.find(channel => channel.name === "welkom")
     if(!channel) return;
 
     var joinEmbed = new discord.MessageEmbed()
@@ -47,7 +47,7 @@ bot.on('guildMemberAdd', member =>{
       .setDescription("Veel plezier!")
       .setColor("#2357E8");
 
-    message.channel.send(joinEmbed);
+    message.welkomchannel.send(joinEmbed);
 
 });
 
