@@ -60,7 +60,7 @@ const { Client } = require("discord.js");
 const bot = new Client();
 
 bot.on("message", message => {
- if(message.channel.id === "695765656921964555") mesaage.react("🟥");
+ if(message.channel.id === "695765656921964555") message.react("🟥");
 });
 
   if(message.author.bot) return;
