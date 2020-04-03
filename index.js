@@ -41,7 +41,7 @@ bot.on("ready", async () => {
 bot.on("guildMemberAdd", member =>{
 
     var welcomeEmbed = new discord.MessageEmbed()
-      .setTitle(`Welkom op de server ${member}!` )
+      .setTitle(`Welkom op de server ${member.user.username}!` )
       .setColor("#2357E8")
       .setDescription("Veel plezier op de server!");
 
