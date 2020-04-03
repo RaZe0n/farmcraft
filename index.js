@@ -38,7 +38,7 @@ bot.on("ready", async () => {
   bot.user.setActivity("Getting developed", {type: "WATCHING"});
 })
 
-bot.on("guildMemberAdd", (member) =>{
+bot.on("guildMemberAdd", member =>{
 
     //Join message embed
     //var joinEmbed = new discord.MessageEmbed()
