@@ -114,5 +114,5 @@ bota.on("message", message => {
   //  })
 
 //  }
-//
+}
 bot.login(token);
