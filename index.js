@@ -60,7 +60,7 @@ bot.on("guildMemberAdd", member =>{
     //const bota = new Client();
 
 bot.on("message", message => {
-    if(message.channel.id === "695765656921964555") message.react("🟥"), message.react("🟩");
+    if(message.channel.id === "695765656921964555") message.react("👍"), message.react("👎");
 
 })
 
