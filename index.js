@@ -62,7 +62,7 @@ const bota = new Client();
 bota.on("message", message => {
  if(message.channel.id === "695765656921964555") message.react("🟥");
 
-}
+
 
 //  if(message.author.bot) return;
 
