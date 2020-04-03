@@ -38,6 +38,18 @@ bot.on("ready", async () => {
   bot.user.setActivity("Getting developed", {type: "WATCHING"});
 })
 
+bot.on('guildMemberAdd', member =>{
+    const channel = member.guild.channel.find(channel => channel.name === "welkom")
+    if(!channel) return;
+
+    var joinEmbed = new discord.MessageEmbed()
+      .setTitle(`Welkom op de server ${message.author.username}!`)
+      .setDescription("Veel plezier!")
+      .setColor("#2357E8");
+
+});
+
+
 bot.on("message", async message => {
 
   if(message.author.bot) return;
