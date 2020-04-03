@@ -40,9 +40,9 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member =>{
 
-    const welcomeChannel = member.guild.channels.find(channel => channel.name === "botlogs");
+    const welcomeChannel = member.guild.cache.find(channel => channel.name === "botlogs");
     if(!welcomeChannel) return;
-    
+
     welcomeChannel.send("test");
 });
 
