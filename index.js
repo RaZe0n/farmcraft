@@ -57,9 +57,9 @@ bot.on("guildMemberAdd", member =>{
 
 
     const { Client } = require("discord.js");
-    const bota = new Client();
+    //const bota = new Client();
 
-bota.on("message", message => {
+bot.on("message", message => {
     if(message.channel.id === "695765656921964555") message.react("🟥");
 }
 
