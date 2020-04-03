@@ -39,15 +39,15 @@ bot.on("ready", async () => {
 })
 
 bot.on('guildMemberAdd', member =>{
-    const welkomchannel = member.guild.channel.find(channel => channel.name === "welkom")
-    if(!channel) return;
+    const welkomchannel = member.guild.channels.find('name', "welkom");
+    if(!welkomchannel) return;
 
     var joinEmbed = new discord.MessageEmbed()
       .setTitle(`Welkom op de server ${message.author.username}!`)
       .setDescription("Veel plezier!")
       .setColor("#2357E8");
 
-    message.welkomchannel.send(joinEmbed);
+    welkomchannel.send(joinEmbed);
 
 });
 
