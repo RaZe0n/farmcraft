@@ -40,10 +40,16 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member =>{
 
-    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "botlogs");
+    var welcomeEmbed = new discord.MessageEmbed()
+      .setTitle("test")
+      .setColor("#2357E8")
+      .setDescription("test1");
+
+    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
     if(!welcomeChannel) return;
 
-    welcomeChannel.send("test");
+    welcomeChannel.send(welcomeEmbed);
+
 });
 
 
