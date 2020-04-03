@@ -56,6 +56,39 @@ bot.on("message", async message => {
 
   if(commands) commands.run(bot, message, args);
 
+  //Ticket command
+  if(command === '>ticket'){
+
+    const categoryId = "680478197795520614";
+
+    var userName = message.author.username;
+    var userDiscriminator = message.author.discriminator;
+
+    //var embedCreateTicket = new discord.MessageEmbed()
+    //  .setTitle("Hello, " + message.author.username)
+    //  .setFooter("Support channel is getting created.");
+
+    //message.channel.send(embedCreateTicket);
+
+    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+
+      createdChan.setParent(categoryId).then((settedParent) => {
+
+        settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), {"READ_MESSAGES": false, "SEND_MESSAGES": false, "VIEW_CHANNEL": false});
+
+        settedParent.overwritePermissions(message.author, {"READ_MESSAGES": true, "SEND_MESSAGES": true, "ATTACH_FILES": true, "CONNECT": true, "CREATE_INSTANT_INVITE": false, "VIEW_CHANNEL": true});
+
+        var embedParent = new discord.MessageEmbed()
+          .setTitle("Hello, " + message.author.username)
+          .setDescription("Type your message here, to close your ticket use: >closeticket");
+
+        settedParent.send(embedParent);
+
+      })
+
+    })
+
+  }
 })
 
 bot.login(token);
