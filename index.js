@@ -56,11 +56,12 @@ bot.on("guildMemberAdd", member =>{
 });
 
 
-bot.on("message", async message => {
+const { Client } = require("discord.js");
+const bot = new Client();
 
-  //if(message.channel.id == "680187412743454751"){
-  //  await message.react(message, "695723631610691595")
-  //}
+bot.on("message", message => {
+ if(message.channel.id === "695765656921964555") mesaage.react("🟥");
+});
 
   if(message.author.bot) return;
 
