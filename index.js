@@ -47,6 +47,8 @@ bot.on('guildMemberAdd', member =>{
       .setDescription("Veel plezier!")
       .setColor("#2357E8");
 
+    channel.send(joinEmbed);
+
 });
 
 
