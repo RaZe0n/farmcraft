@@ -87,7 +87,7 @@ bot.on("message", async message => {
 
       createdChan.setParent(categoryId).then((settedParent) => {
 
-        settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), {"READ_MESSAGES": false, "SEND_MESSAGES": false, "VIEW_CHANNEL": false});
+      //settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), {"READ_MESSAGES": false, "SEND_MESSAGES": false, "VIEW_CHANNEL": false});
 
         settedParent.overwritePermissions(message.author, {"READ_MESSAGES": true, "SEND_MESSAGES": true, "ATTACH_FILES": true, "CONNECT": true, "CREATE_INSTANT_INVITE": false, "VIEW_CHANNEL": true});
         settedParent.overwritePermissions(695715629189169322, {"READ_MESSAGES": true, "SEND_MESSAGES": true, "ATTACH_FILES": true, "CONNECT": true, "CREATE_INSTANT_INVITE": false, "VIEW_CHANNEL": true});
