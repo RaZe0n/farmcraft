@@ -39,17 +39,15 @@ bot.on("ready", async () => {
 })
 
 bot.on('guildMemberAdd', member =>{
-    //const welkomchannel = member.guild.channels.find('name', "welkom");
-    //if(!welkomchannel) return;
 
-    member.guild.channels.get('695687937886650409').send('**' + member.user.username + '**, has joined the server!');
+    //Join message embed
+    var joinEmbed = new discord.MessageEmbed()
+      .setTitle(`Welkom op de server ${message.author.username}!`)
+      .setDescription("Veel plezier!")
+      .setColor("#2357E8");
 
-    //var joinEmbed = new discord.MessageEmbed()
-    //  .setTitle(`Welkom op de server ${message.author.username}!`)
-    //  .setDescription("Veel plezier!")
-    //  .setColor("#2357E8");
-
-    //welkomchannel.send(joinEmbed);
+    var welcomeChannel = member.guild.channels.find("id", "695687937886650409");
+    welcomeChannel.send(joinEmbed);
 
 });
 
