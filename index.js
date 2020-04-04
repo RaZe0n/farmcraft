@@ -139,6 +139,18 @@ bot.on("message", message => {
     }
   }
 
+  if(message.content.toLowerCase() === '!rename') {
+    if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
+
+    const categoryId = '680478197795520614'
+
+    if(message.channel.parentID == categoryId){
+          message.channel.rename(args);
+    }else{
+      message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
+    }
+  }
+
   //Developer debug close.
   if(message.content.toLowerCase() === '!devclose') {
     const categoryId = '680478197795520614'
