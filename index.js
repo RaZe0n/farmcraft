@@ -102,7 +102,7 @@ bot.on("message", message => {
     var support = message.guild.roles.cache.get(`695715629189169322`);
 
     var testEmbed = new discord.MessageEmbed()
-      .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
+      .setTitle(`${message.guild.name} | Tickets`, message.guild.iconURL)
       .setColor("#f16411")
       .setDescription("Een stafflid zal zo op je vraag antwoorden!")
       .setThumbnail("https://i.imgur.com/mFfEmkE.png")
@@ -112,7 +112,7 @@ bot.on("message", message => {
     bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`)
       supportChannel.send(`${support}`);
       supportChannel.send(testEmbed);
-      supportChannel.send(`${message.author.tag}`);
+      //supportChannel.send(`${message.author.tag}`);
 
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
