@@ -101,6 +101,14 @@ bot.on("message", message => {
     channel.setParent(category.id);
   }).catch(console.error);
   }
+  if(message.content.toLowerCase() === '!close') {
+    const categoryId = '680478197795520614'
+    if(message.channel.parentID == categoryId){
+      message.channel.delete();
+    }else{
+      message.channel.send("Kan alleen in een ticket gebruikt worden!");
+    }
+  }
 
 });
 
