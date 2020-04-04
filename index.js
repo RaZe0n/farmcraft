@@ -56,7 +56,7 @@ bot.on("guildMemberAdd", member =>{
 });
 
 
-    const { Client } = require("discord.js");
+    //const { Client } = require("discord.js");
     //const bota = new Client();
 
 bot.on("message", message => {
