@@ -106,7 +106,6 @@ bot.on("message", message => {
     const categoryId = '680478197795520614'
     if(message.channel.parentID == categoryId){
       message.channel.send("Dit kanaal word gedelete in 10 seconden!").then(msg => {
-        msg.react(':joy:');
         setTimeout(function(){
           message.channel.delete();
         }, endMS);
