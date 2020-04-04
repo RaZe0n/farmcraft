@@ -94,7 +94,12 @@ bot.on("message", message => {
           id: '695715629189169322'
         }
       ]
-    });
+    }).then(channel => {
+    let category = server.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+
+    if (!category) throw new Error("Category channel does not exist");
+    channel.setParent(category.id);
+  }).catch(console.error);
   }
 
 });
