@@ -76,6 +76,27 @@ bot.on("message", message => {
 
   if(commands) commands.run(bot, message, args);
 
+  if(message.content.toLowerCase() === '!createticket' && message.channel.id === '695985618785927199'){
+    let guild message.guild;
+    guild.createChannel(`${message.author.username}-ticket`, {
+      type: 'text',
+      permissionOverwrites: [
+        {
+          allow: 'VIEW_CHANNEL',
+          id: message.author.id
+        },
+        {
+          deny: 'VIEW_CHANNEL',
+          id: guild.id
+        },
+        {
+          allow: 'VIEW_CHANNEL',
+          id: '695715629189169322'
+        }
+      ]
+    });
+  }
+
 });
 
 
