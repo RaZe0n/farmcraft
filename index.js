@@ -110,7 +110,7 @@ bot.on("message", message => {
       .setFooter("Aangemaakt:");
 
     //supportChannel.send(testEmbed), message.channel.send(`${support}`);
-    bot.channels.cache.get(c => c.name == `${message.author.username}-ticket`).then(msg => {
+    bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`).then(msg => {
       supportChannel.channel.send(testEmbed);
       supportChannel.channel.send(`${support}`);
     }).catch(console.error);
