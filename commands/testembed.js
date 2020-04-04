@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) =>{
 
-  var support = message.guild.roles.cache.get('695715629189169322');
+  var support = message.guild.roles.cache.get(`695715629189169322`);
 
   var testEmbed = new discord.MessageEmbed()
     //.setTitle(`Welkom op de server` )
