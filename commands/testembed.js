@@ -7,7 +7,7 @@ module.exports.run = async(bot, message, args) =>{
     .setAuthor(`${message.guild.name} Tickets`, message.guild.iconURL)
     .setColor("#f16411")
     .setDescription("Veel plezier op de server!")
-    .setThumbnail("https://i.imgur.com/mFfEmkE.png")
+    //.setThumbnail("https://i.imgur.com/mFfEmkE.png")
     .setTimestamp()
     .setFooter("Gejoined:");
 
