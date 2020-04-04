@@ -111,8 +111,8 @@ bot.on("message", message => {
 
     //supportChannel.send(testEmbed), message.channel.send(`${support}`);
     bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`)
-      supportChannel.channel.send(testEmbed);
-      supportChannel.channel.send(`${support}`);
+      supportChannel.send(testEmbed);
+      supportChannel.send(`${support}`);
 
 
     if (!category) throw new Error("Category channel does not exist");
