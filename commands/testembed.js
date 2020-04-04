@@ -2,6 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) =>{
 
+  var support = guild.roles.cache.get('695715629189169322');
+
   var testEmbed = new discord.MessageEmbed()
     //.setTitle(`Welkom op de server` )
     .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
@@ -11,7 +13,7 @@ module.exports.run = async(bot, message, args) =>{
     .setTimestamp()
     .setFooter("Aangemaakt:");
 
-  return message.channel.send(testEmbed), message.channel.send("@support");
+  return message.channel.send(testEmbed), message.channel.send(`${support}`);
 
 }
 
