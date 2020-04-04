@@ -123,7 +123,14 @@ bot.on("message", message => {
     var endMS = "10000"
     const categoryId = '680478197795520614'
     if(message.channel.parentID == categoryId){
-      message.channel.send("Dit kanaal word gedelete in 10 seconden!").then(msg => {
+      var closeEmbed = new discord.MessageEmbed()
+        .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
+        .setColor("#f16411")
+        .setDescription("Deze ticket zal over 10 seconden sluiten!")
+        .setTimestamp()
+        .setFooter("Gesloten:");
+
+      message.channel.send(closeEmbed).then(msg => {
         setTimeout(function(){
           message.channel.delete();
         }, endMS);
