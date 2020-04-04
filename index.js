@@ -72,7 +72,9 @@ bot.on("message", message => {
 
   var command = messageArray[0];
 
-  var args = messageArray.slice(1);  var commands = bot.commands.get(command.slice(prefix.length));
+  var args = messageArray.slice(1);
+
+  var commands = bot.commands.get(command.slice(prefix.length));
 
   if(commands) commands.run(bot, message, args);
 
@@ -145,7 +147,7 @@ bot.on("message", message => {
     const categoryId = '680478197795520614'
 
     if(message.channel.parentID == categoryId){
-      message.channel.setName(args[0]);
+      message.channel.setName('test');
     }else{
       message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
     }
