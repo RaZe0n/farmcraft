@@ -109,7 +109,7 @@ bot.on("message", message => {
 
       })
 
-    }
+    };
 
 });
 
