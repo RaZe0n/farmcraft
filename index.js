@@ -97,7 +97,7 @@ bot.on("message", message => {
     }).then(channel => {
     let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-    let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username}-ticket`);
+    let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username.toLowerCase()}-ticket`);
 
     var support = message.guild.roles.cache.get(`695715629189169322`);
 
