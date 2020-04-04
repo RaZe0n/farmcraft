@@ -62,7 +62,7 @@ bot.on("guildMemberAdd", member =>{
 bot.on("message", message => {
     if(message.channel.id === "695765656921964555") message.react("👍"), message.react("👎");
 
-})
+
 
   if(message.author.bot) return;
 
@@ -111,7 +111,7 @@ bot.on("message", message => {
 
     })
 
-  }
+  });
 
 
 bot.login(token);
