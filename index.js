@@ -143,7 +143,7 @@ bot.on("message", message => {
   if(message.content.toLowerCase() === '!devclose') {
     const categoryId = '680478197795520614'
 
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return;
+    if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
     if(message.channel.parentID == categoryId){
           message.channel.delete();
