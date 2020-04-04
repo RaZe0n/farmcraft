@@ -104,10 +104,7 @@ bot.on("message", message => {
   if(message.content.toLowerCase() === '!close') {
     const categoryId = '680478197795520614'
     if(message.channel.parentID == categoryId){
-      var deleteTime = '5';
-      setTimeout(function() {
-        message.channel.delete();
-      }, ms(deleteTime));
+      message.channel.delete({ timeout: 10000 });
     }else{
       message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
     }
