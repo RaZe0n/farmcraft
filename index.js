@@ -78,7 +78,7 @@ bot.on("message", message => {
 
   if(commands) commands.run(bot, message, args);
 
-/Ticket command
+  //Ticket command
   if(command === '>ticket'){
 
     const categoryId = "680478197795520614";
