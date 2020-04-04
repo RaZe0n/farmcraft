@@ -145,7 +145,7 @@ bot.on("message", message => {
     const categoryId = '680478197795520614'
 
     if(message.channel.parentID == categoryId){
-          message.channel.setName(args);
+      message.channel.setName(args[0]);
     }else{
       message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
     }
