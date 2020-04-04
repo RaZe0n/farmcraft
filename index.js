@@ -92,9 +92,9 @@ bot.on("message", message => {
 
   message.channel.send(embedCreateTicket);
 
-    message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+    message.guild.cache.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => {
 
-      //createdChan.setParent(categoryId).then((settedParent) => {
+      createdChan.setParent(categoryId).then((settedParent) => {
 
       settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), {"READ_MESSAGES": false, "SEND_MESSAGES": false, "VIEW_CHANNEL": false});
 
