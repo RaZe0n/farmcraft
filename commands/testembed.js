@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async(bot, message, args) =>{
 
   var testEmbed = new discord.MessageEmbed()
-    .setTitle(`Welkom op de server ${member.user.username}!` )
+    .setTitle(`Welkom op de server` )
     .setAuthor(`${message.guild.name} Tickets`, message.guild.iconURL)
     .setColor("#f16411")
     .setDescription("Veel plezier op de server!")
