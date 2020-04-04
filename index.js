@@ -95,7 +95,7 @@ bot.on("message", message => {
         }
       ]
     }).then(channel => {
-    let category = server.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+    let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
