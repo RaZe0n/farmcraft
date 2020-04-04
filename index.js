@@ -97,7 +97,7 @@ bot.on("message", message => {
     }).then(channel => {
     let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-    let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username}-ticket`);
+    //let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username}-ticket`);
 
     var support = message.guild.roles.cache.get(`695715629189169322`);
 
@@ -109,7 +109,8 @@ bot.on("message", message => {
       .setTimestamp()
       .setFooter("Aangemaakt:");
 
-    supportChannel.send(testEmbed), message.channel.send(`${support}`);
+    //supportChannel.send(testEmbed), message.channel.send(`${support}`);
+    bot.channels.cache.get(c => c.name == `${message.author.username}-ticket`).send(testEmbed).send(`${support}`);
 
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
