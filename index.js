@@ -78,7 +78,7 @@ bot.on("message", message => {
 
   if(message.content.toLowerCase() === '!createticket' && message.channel.id === '695985618785927199'){
     let guild = message.guild;
-    guild.cache.createChannel(`${message.author.username}-ticket`, {
+    guild.channels.create(`${message.author.username}-ticket`, {
       type: 'text',
       permissionOverwrites: [
         {
