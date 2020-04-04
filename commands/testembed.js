@@ -3,15 +3,15 @@ const discord = require("discord.js");
 module.exports.run = async(bot, message, args) =>{
 
   var testEmbed = new discord.MessageEmbed()
-    .setTitle(`Welkom op de server` )
-    .setAuthor(`${message.guild.name} Tickets`, message.guild.iconURL)
+    //.setTitle(`Welkom op de server` )
+    .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
     .setColor("#f16411")
-    .setDescription("Veel plezier op de server!")
-    //.setThumbnail("https://i.imgur.com/mFfEmkE.png")
+    .setDescription("Een stafflid zal zo op je vraag antwoorden!")
+    .setThumbnail("https://i.imgur.com/mFfEmkE.png")
     .setTimestamp()
-    .setFooter("Gejoined:");
+    .setFooter("Aangemaakt:");
 
-  return message.channel.send(testEmbed);
+  return message.channel.send(testEmbed), message.channel.send("@support");
 
 }
 
