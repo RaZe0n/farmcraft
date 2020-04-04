@@ -97,6 +97,18 @@ bot.on("message", message => {
     }).then(channel => {
     let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
+    var support = message.guild.roles.cache.get(`695715629189169322`);
+
+    var testEmbed = new discord.MessageEmbed()
+      .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
+      .setColor("#f16411")
+      .setDescription("Een stafflid zal zo op je vraag antwoorden!")
+      .setThumbnail("https://i.imgur.com/mFfEmkE.png")
+      .setTimestamp()
+      .setFooter("Aangemaakt:");
+
+    message.channel.send(testEmbed), message.channel.send(`${support}`);
+
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
   }).catch(console.error);
