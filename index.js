@@ -110,10 +110,10 @@ bot.on("message", message => {
       .setFooter("Aangemaakt:");
 
     //supportChannel.send(testEmbed), message.channel.send(`${support}`);
-    bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`).then(msg => {
+    bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`)
       supportChannel.channel.send(testEmbed);
       supportChannel.channel.send(`${support}`);
-    }).catch(console.error);
+    })
 
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
