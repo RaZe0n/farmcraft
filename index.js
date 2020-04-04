@@ -139,6 +139,20 @@ bot.on("message", message => {
     }
   }
 
+  //Developer debug close.
+  if(message.content.toLowerCase() === '!devclose') {
+    var endMS = "0"
+    const categoryId = '680478197795520614'
+
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return;
+
+    if(message.channel.parentID == categoryId){
+          message.channel.delete();
+    }else{
+      message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
+    }
+  }
+
 });
 
 
