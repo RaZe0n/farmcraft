@@ -102,9 +102,15 @@ bot.on("message", message => {
   }).catch(console.error);
   }
   if(message.content.toLowerCase() === '!close') {
+    var endMS = "10000"
     const categoryId = '680478197795520614'
     if(message.channel.parentID == categoryId){
-      message.channel.delete({ timeout: 100000 });
+      message.channel.send("Dit kanaal word gedelete in 10 seconden!").then(msg => {
+        msg.react('');
+        setTimeout(function(){
+          message.channel.delete();
+        }, endMS);
+      })
     }else{
       message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
     }
