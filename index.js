@@ -67,7 +67,7 @@ bot.on("message", message => {
   if(message.channel.type === "dm") return;
 
   if (!message.content.startsWith(botConfig.prefix)) return;
-  const withoutPrefix = message.content.slice(config.prefix.length);
+  const withoutPrefix = message.content.slice(botConfig.prefix.length);
   const leSplit = withoutPrefix.split(/ +/);
 	const leCommand = split[0];
 	const leArgs = split.slice(1);
