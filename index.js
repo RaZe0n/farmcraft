@@ -147,23 +147,10 @@ bot.on("message", message => {
     }
   }
 
-  //if(message.content.toLowerCase() === '!rename') {
-  //  if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
-  //
-  //  var renameArgs = message.content.slice(prefix.length).array.join("-");
-  //
-  //  const categoryId = '680478197795520614'
-  //
-  //  if(message.channel.parentID == categoryId){
-  //    message.channel.setName(renameArgs);
-  //  }else{
-  //    message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
-  //  }
-  //}
   if(leCommand === 'rename'){
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
     if(leArgs[0]){
-      //var renameArgs = message.content.slice(prefix.length).array.join("-");
+      if(leArgs[1]) return message.channel.send("Gebruik een - in plaats van een spatie!");
 
       const categoryId = '680478197795520614'
 
