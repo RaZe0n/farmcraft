@@ -171,7 +171,7 @@ bot.on("message", message => {
         message.channel.setName(leArgs[0]);
       }else{
         message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
-      }s
+      }
     }else{
       return message.channel.send('Gebruik asjeblieft een argument.');
     }
