@@ -69,8 +69,8 @@ bot.on("message", message => {
   if (!message.content.startsWith(botConfig.prefix)) return;
   const withoutPrefix = message.content.slice(botConfig.prefix.length);
   const leSplit = withoutPrefix.split(/ +/);
-	const leCommand = split[0];
-	const leArgs = split.slice(1);
+	const leCommand = leSplit[0];
+	const leArgs = leSplit.slice(1);
 
   var prefix = botConfig.prefix;
 
