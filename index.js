@@ -144,7 +144,11 @@ bot.on("message", message => {
   if(message.content.toLowerCase() === '!rename') {
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
+<<<<<<< HEAD
     var renameArgs = message.content.slice(prefix.length).array.join("-");
+=======
+    let mylady = args[0];
+>>>>>>> c8695f84947514bc56b7d5cb6bfe3fea9a9eb862
 
     const categoryId = '680478197795520614'
 
