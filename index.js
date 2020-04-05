@@ -62,6 +62,14 @@ bot.on("guildMemberAdd", member =>{
 bot.on("message", message => {
   if(message.channel.id === "695765656921964555") message.react("👍"), message.react("👎");
 
+  if(message.authot.bot){
+    if(message.embeds.length === 1 && message.embeds[0].description.startsWith('Reageer')){
+      message.react('tickets')
+      .then(msgReaction => console.log('<Bot> Reacted.'))
+      .catch(err => console.log(err));
+    }
+  };
+
   if(message.author.bot) return;
 
   if(message.channel.type === "dm") return;
@@ -185,6 +193,10 @@ bot.on("message", message => {
     }
   }
 
+});
+
+bot.on('messageReactionAdd', (reaction, user) => {
+  console.log(`${user.username} reacted!`);
 });
 
 
