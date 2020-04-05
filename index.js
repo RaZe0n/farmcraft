@@ -62,7 +62,7 @@ bot.on("guildMemberAdd", member =>{
 bot.on("message", message => {
   if(message.channel.id === "695765656921964555") message.react("👍"), message.react("👎");
 
-  if(message.authot.bot){
+  if(message.author.bot){
     if(message.embeds.length === 1 && message.embeds[0].description.startsWith('Reageer')){
       message.react('tickets')
       .then(msgReaction => console.log('<Bot> Reacted.'))
