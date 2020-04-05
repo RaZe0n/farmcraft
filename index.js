@@ -64,7 +64,8 @@ bot.on("message", message => {
 
   if(message.author.bot){
     if(message.embeds.length === 1 && message.embeds[0].description.startsWith('Reageer')){
-      message.react(':tickets:')
+      const tickets = client.emojis.find(emoji => emoji.name === "tickets");
+      message.react(tickets)
       .then(msgReaction => console.log('<Bot> Reacted.'))
       .catch(err => console.log(err));
     }
