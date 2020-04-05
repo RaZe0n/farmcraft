@@ -144,12 +144,12 @@ bot.on("message", message => {
   if(message.content.toLowerCase() === '!rename') {
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
-    var renameArgs = message.content.slice(prefix.length).array.join("-");
+    var renameArgs = message.content.slice(prefix.length).split(' ');
 
     const categoryId = '680478197795520614'
 
     if(message.channel.parentID == categoryId){
-      message.channel.setName(renameArgs);
+      message.channel.setName(renameArgs.join("-"));
     }else{
       message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
     }
