@@ -66,6 +66,12 @@ bot.on("message", message => {
 
   if(message.channel.type === "dm") return;
 
+  if (!message.content.startsWith(config.prefix)) return;
+  const withoutPrefix = message.content.slice(config.prefix.length);
+  const leSplit = withoutPrefix.split(/ +/);
+	const leCommand = split[0];
+	const leArgs = split.slice(1);
+
   var prefix = botConfig.prefix;
 
   var messageArray = message.content.split(' ');
@@ -141,17 +147,33 @@ bot.on("message", message => {
     }
   }
 
-  if(message.content.toLowerCase() === '!rename') {
+  //if(message.content.toLowerCase() === '!rename') {
+  //  if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
+  //
+  //  var renameArgs = message.content.slice(prefix.length).array.join("-");
+  //
+  //  const categoryId = '680478197795520614'
+  //
+  //  if(message.channel.parentID == categoryId){
+  //    message.channel.setName(renameArgs);
+  //  }else{
+  //    message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
+  //  }
+  //}
+  if(leCommand === 'rename'){
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if(leArgs[0]){
+      //var renameArgs = message.content.slice(prefix.length).array.join("-");
 
-    var renameArgs = message.content.slice(prefix.length).array.join("-");
+      const categoryId = '680478197795520614'
 
-    const categoryId = '680478197795520614'
-
-    if(message.channel.parentID == categoryId){
-      message.channel.setName(renameArgs);
+      if(message.channel.parentID == categoryId){
+        message.channel.setName(leArgs[0]);
+      }else{
+        message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
+      }s
     }else{
-      message.channel.send("Kan alleen in een ticket gebruikt worden!").catch(console.error);
+      return message.channel.send('Gebruik asjeblieft een argument.');
     }
   }
 
