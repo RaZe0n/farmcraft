@@ -155,6 +155,14 @@ bot.on("message", message => {
     }
   }
 
+  if(message.content.toLowerCase() === '!ticketmsg'){
+    const ticketEmbed = new discord.MessageEmbed();
+    ticketEmbed.setAuthor(bot.user.username, bot.user.displayAvatarURL);
+    ticketEmbed.setDescription('Reageer op dit bericht om een ticket te openen.');
+    ticketEmbed.setColor('#f16411');
+    message.channel.send(ticketEmbed);
+  }
+
   //Developer debug close.
   if(message.content.toLowerCase() === '!devclose') {
     const categoryId = '680478197795520614'
