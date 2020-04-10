@@ -195,6 +195,15 @@ bot.on("message", message => {
 
 });
 
+bot.on('raw', payload => {
+  if(payload.t === 'MESSAGE_REACTION_ADD') {
+    console.log("User is reacting to a message.")
+    if(payload.d.message_id === '698229370296467548') {
+      let channel - bot.channels.cache.get(payload.d.channel_id)
+    }
+  }
+});
+
 bot.on('messageReactionAdd', (reaction, user) => {
   console.log(`${user.username} reacted!`);
 });
