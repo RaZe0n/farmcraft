@@ -259,6 +259,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     supportChannel.send(`${support}`);
     supportChannel.send(supportEmbed);
     //supportChannel.send(`${message.author.tag}`);
+    channel.send("test");
 
   if (!category) throw new Error("Category channel does not exist");
   channel.setParent(category.id);
