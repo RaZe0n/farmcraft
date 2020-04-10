@@ -221,49 +221,51 @@ bot.on('raw', payload => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-  //Dit hieronder checked of er al een ticket is maar dat is niet nodig.
-  ////if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === user.username + '-ticket')) message.author.send("Je hebt al een ticket!");
-  let guild = reaction.message.guild;
-  guild.channels.create(`${user.username}-ticket`, {
-    type: 'text',
-    permissionOverwrites: [
-      {
-        allow: 'VIEW_CHANNEL',
-        id: user.id
-      },
-      {
-        deny: 'VIEW_CHANNEL',
-        id: guild.id
-      },
-      {
-        allow: 'VIEW_CHANNEL',
-        id: '695715629189169322'
-      }
-    ]
-  }).then(channel => {
-  let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+  if(reaction.emoji.name === '🎟️'){
+    //Dit hieronder checked of er al een ticket is maar dat is niet nodig.
+    ////if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === user.username + '-ticket')) message.author.send("Je hebt al een ticket!");
+    let guild = reaction.message.guild;
+    guild.channels.create(`${user.username}-ticket`, {
+      type: 'text',
+      permissionOverwrites: [
+        {
+          allow: 'VIEW_CHANNEL',
+          id: user.id
+        },
+        {
+          deny: 'VIEW_CHANNEL',
+          id: guild.id
+        },
+        {
+          allow: 'VIEW_CHANNEL',
+          id: '695715629189169322'
+        }
+      ]
+    }).then(channel => {
+    let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-  //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
+    //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
-  var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
+    var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
 
-  var supportEmbed = new discord.MessageEmbed()
-    .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
-    .setColor("#f16411")
-    .setDescription("Een stafflid zal zo op je vraag antwoorden!")
-    .setThumbnail("https://i.imgur.com/mFfEmkE.png")
-    .setTimestamp()
-    .setFooter("Aangemaakt:");
+    var supportEmbed = new discord.MessageEmbed()
+      .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
+      .setColor("#f16411")
+      .setDescription("Een stafflid zal zo op je vraag antwoorden!")
+      .setThumbnail("https://i.imgur.com/mFfEmkE.png")
+      .setTimestamp()
+      .setFooter("Aangemaakt:");
 
-  //bot.channels.cache.find(c => c.name == `${user.username}-ticket`)
-    channel.send(`${support}`);
-    channel.send(supportEmbed);
-    //supportChannel.send(`${message.author.tag}`);
+    //bot.channels.cache.find(c => c.name == `${user.username}-ticket`)
+      channel.send(`${support}`);
+      channel.send(supportEmbed);
+      //supportChannel.send(`${message.author.tag}`);
 
 
-  if (!category) throw new Error("Category channel does not exist");
-  channel.setParent(category.id);
-}).catch(console.error);
+    if (!category) throw new Error("Category channel does not exist");
+    channel.setParent(category.id);
+    }).catch(console.error);
+  };
 });
 
 
