@@ -210,8 +210,8 @@ bot.on('raw', payload => {
         channel.fetchMessage(payload.d.message_id)
         .then(msg => {
           let reaction = msg.reactions.get('🎟️')
-          let user = client.users.get(payload.d.user_id);
-          client.emit('messageReactionAdd', reaction, user);
+          let user = bot.users.get(payload.d.user_id);
+          bot.emit('messageReactionAdd', reaction, user);
 
       })
       .catch(err => console.log(err));
