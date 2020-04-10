@@ -173,6 +173,7 @@ bot.on("message", message => {
   }
 
   if(message.content.toLowerCase() === '!ticketmsg'){
+    if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
     const ticketEmbed = new discord.MessageEmbed();
     ticketEmbed.setAuthor(bot.user.username, bot.user.displayAvatarURL);
     ticketEmbed.setDescription('Reageer op dit bericht om een ticket te openen.');
