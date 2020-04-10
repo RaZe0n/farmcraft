@@ -93,7 +93,7 @@ bot.on("message", message => {
   if(commands) commands.run(bot, message, args);
 
   if(message.content.toLowerCase() === '!createticket' && message.channel.id === '695985618785927199'){
-    /*
+    if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
     let guild = message.guild;
     guild.channels.create(`${message.author.username}-ticket`, {
       type: 'text',
@@ -134,7 +134,6 @@ bot.on("message", message => {
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
   }).catch(console.error);
-  */
   }
   if(message.content.toLowerCase() === '!close') {
     var endMS = "10000"
