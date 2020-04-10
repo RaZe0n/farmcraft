@@ -35,7 +35,7 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`)
   console.log("<=========LOGS========>")
 
-  bot.user.setActivity("Getting developed", {type: "WATCHING"});
+  bot.user.setActivity("play.farmcraft.nl", {type: "WATCHING"});
 })
 
 bot.on("guildMemberAdd", member =>{
