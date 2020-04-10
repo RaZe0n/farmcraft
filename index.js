@@ -245,7 +245,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
   //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
-  //var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
+  var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
 
   var supportEmbed = new discord.MessageEmbed()
     .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
