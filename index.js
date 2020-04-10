@@ -259,7 +259,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     supportChannel.send(`${support}`);
     supportChannel.send(supportEmbed);
     //supportChannel.send(`${message.author.tag}`);
-  channel.send("Als dit werkt dan hebben we voor niks een groot stuk code gemaakt om de ticket channel te vinden.");
+  //channel.send("Als dit werkt dan hebben we voor niks een groot stuk code gemaakt om de ticket channel te vinden.");
 
   if (!category) throw new Error("Category channel does not exist");
   channel.setParent(category.id);
