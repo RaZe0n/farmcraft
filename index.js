@@ -241,7 +241,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
       }
     ]
   }).then(channel => {
-  //let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+  let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
   //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
