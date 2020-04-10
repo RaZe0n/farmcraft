@@ -218,6 +218,7 @@ bot.on('raw', payload => {
       .catch(err => console.log(err));
     }
   }
+}
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
