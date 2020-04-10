@@ -201,7 +201,7 @@ bot.on('raw', payload => {
   if(payload.t === 'MESSAGE_REACTION_ADD') {
     if(payload.d.emoji.name != '🎟️')
       return;
-    if(payload.d.message_id === '698229370296467548') {
+    if(payload.d.message_id === '698249668534075482') {
       let channel = bot.channels.cache.get(payload.d.channel_id)
       if(channel.message.has(payload.d.message_id)) {
         return;
