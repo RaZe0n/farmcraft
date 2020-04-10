@@ -203,7 +203,7 @@ bot.on('raw', payload => {
     if(payload.d.emoji.name != '🎟️')
       return;
     if(payload.d.message_id === '698229370296467548') {
-      let channel - bot.channels.cache.get(payload.d.channel_id)
+      let channel = bot.channels.cache.get(payload.d.channel_id)
       if(channel.message.has(payload.d.message_id)) {
         return;
       }
@@ -221,14 +221,15 @@ bot.on('raw', payload => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-  if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === message.author.username + '-ticket')) message.author.send("Je hebt al een ticket!");
-  let guild = message.guild;
-  guild.channels.create(`${message.author.username}-ticket`, {
+  //Dit hieronder checked of er al een ticket is maar dat is niet nodig.
+  ////if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === user.username + '-ticket')) message.author.send("Je hebt al een ticket!");
+  let guild = reaction.message.guild;
+  guild.channels.create(`${user.username}-ticket`, {
     type: 'text',
     permissionOverwrites: [
       {
         allow: 'VIEW_CHANNEL',
-        id: message.author.id
+        id: user.id
       },
       {
         deny: 'VIEW_CHANNEL',
@@ -242,11 +243,11 @@ bot.on('messageReactionAdd', (reaction, user) => {
   }).then(channel => {
   let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-  let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username.toLowerCase()}-ticket`);
+  let supportChannel = message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
   var support = message.guild.roles.cache.get(`695715629189169322`);
 
-  var testEmbed = new discord.MessageEmbed()
+  var supportEmbed = new discord.MessageEmbed()
     .setTitle(`${message.guild.name} | Tickets`, message.guild.iconURL)
     .setColor("#f16411")
     .setDescription("Een stafflid zal zo op je vraag antwoorden!")
@@ -254,9 +255,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
     .setTimestamp()
     .setFooter("Aangemaakt:");
 
-  bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`)
+  bot.channels.cache.find(c => c.name == `${user.username}-ticket`)
     supportChannel.send(`${support}`);
-    supportChannel.send(testEmbed);
+    supportChannel.send(supportEmbed);
     //supportChannel.send(`${message.author.tag}`);
 
   if (!category) throw new Error("Category channel does not exist");
