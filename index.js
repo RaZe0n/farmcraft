@@ -241,11 +241,11 @@ bot.on('messageReactionAdd', (reaction, user) => {
       }
     ]
   }).then(channel => {
-  let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+  //let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-  let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
+  //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
-  var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
+  //var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
 
   var supportEmbed = new discord.MessageEmbed()
     .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
@@ -255,11 +255,11 @@ bot.on('messageReactionAdd', (reaction, user) => {
     .setTimestamp()
     .setFooter("Aangemaakt:");
 
-  bot.channels.cache.find(c => c.name == `${user.username}-ticket`)
-    supportChannel.send(`${support}`);
-    supportChannel.send(supportEmbed);
+  //bot.channels.cache.find(c => c.name == `${user.username}-ticket`)
+    channel.send(`${support}`);
+    channel.send(supportEmbed);
     //supportChannel.send(`${message.author.tag}`);
-    channel.send("test");
+
 
   if (!category) throw new Error("Category channel does not exist");
   channel.setParent(category.id);
