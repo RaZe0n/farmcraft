@@ -197,15 +197,28 @@ bot.on("message", message => {
 
 bot.on('raw', payload => {
   if(payload.t === 'MESSAGE_REACTION_ADD') {
-    console.log("User is reacting to a message.")
+    if(payload.d.emoji.name != '🎟️')
+      return;
     if(payload.d.message_id === '698229370296467548') {
       let channel - bot.channels.cache.get(payload.d.channel_id)
+      if(channel.message.has(payload.d.message_id)) {
+        return;
+      }
+      else {
+        channel.fetchMessage(payload.d.message_id)
+        .then(msg => {
+          let reaction = msg.reactions.get('🎟️')
+          let user = client.users.get(payload.d.user_id);
+          client.emit('messageReactionAdd', reaction, user);
+
+      })
+      .catch(err => console.log(err));
     }
   }
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-  console.log(`${user.username} reacted!`);
+    
 });
 
 
