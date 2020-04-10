@@ -221,7 +221,7 @@ bot.on('raw', payload => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-  if(reaction.emoji.name === '🎟️'){
+  if(reaction.emoji.name === '🎟️' && reaction.me){
     //Dit hieronder checked of er al een ticket is maar dat is niet nodig.
     ////if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === user.username + '-ticket')) message.author.send("Je hebt al een ticket!");
     let guild = reaction.message.guild;
