@@ -93,6 +93,7 @@ bot.on("message", message => {
   if(commands) commands.run(bot, message, args);
 
   if(message.content.toLowerCase() === '!createticket' && message.channel.id === '695985618785927199'){
+    /*
     let guild = message.guild;
     guild.channels.create(`${message.author.username}-ticket`, {
       type: 'text',
@@ -133,6 +134,7 @@ bot.on("message", message => {
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
   }).catch(console.error);
+  */
   }
   if(message.content.toLowerCase() === '!close') {
     var endMS = "10000"
@@ -219,7 +221,47 @@ bot.on('raw', payload => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-    
+  if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === message.author.username + '-ticket')) message.author.send("Je hebt al een ticket!");
+  let guild = message.guild;
+  guild.channels.create(`${message.author.username}-ticket`, {
+    type: 'text',
+    permissionOverwrites: [
+      {
+        allow: 'VIEW_CHANNEL',
+        id: message.author.id
+      },
+      {
+        deny: 'VIEW_CHANNEL',
+        id: guild.id
+      },
+      {
+        allow: 'VIEW_CHANNEL',
+        id: '695715629189169322'
+      }
+    ]
+  }).then(channel => {
+  let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+
+  let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username.toLowerCase()}-ticket`);
+
+  var support = message.guild.roles.cache.get(`695715629189169322`);
+
+  var testEmbed = new discord.MessageEmbed()
+    .setTitle(`${message.guild.name} | Tickets`, message.guild.iconURL)
+    .setColor("#f16411")
+    .setDescription("Een stafflid zal zo op je vraag antwoorden!")
+    .setThumbnail("https://i.imgur.com/mFfEmkE.png")
+    .setTimestamp()
+    .setFooter("Aangemaakt:");
+
+  bot.channels.cache.find(c => c.name == `${message.author.username}-ticket`)
+    supportChannel.send(`${support}`);
+    supportChannel.send(testEmbed);
+    //supportChannel.send(`${message.author.tag}`);
+
+  if (!category) throw new Error("Category channel does not exist");
+  channel.setParent(category.id);
+}).catch(console.error);
 });
 
 
