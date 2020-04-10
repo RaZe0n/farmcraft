@@ -241,14 +241,14 @@ bot.on('messageReactionAdd', (reaction, user) => {
       }
     ]
   }).then(channel => {
-  let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+  let category = reaction.message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
 
-  let supportChannel = message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
+  let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
-  var support = message.guild.roles.cache.get(`695715629189169322`);
+  var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
 
   var supportEmbed = new discord.MessageEmbed()
-    .setTitle(`${message.guild.name} | Tickets`, message.guild.iconURL)
+    .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
     .setColor("#f16411")
     .setDescription("Een stafflid zal zo op je vraag antwoorden!")
     .setThumbnail("https://i.imgur.com/mFfEmkE.png")
