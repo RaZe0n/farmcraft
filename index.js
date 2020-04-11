@@ -62,7 +62,7 @@ bot.on("guildMemberAdd", member =>{
       .setTimestamp()
       .setFooter("Gejoined:");
 
-    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
+    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "「👋」welkom");
     if(!welcomeChannel) return;
 
     welcomeChannel.send(welcomeEmbed);
