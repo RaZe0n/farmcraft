@@ -30,6 +30,21 @@ fs.readdir("./commands/", (err, files) => {
 
 });
 
+//Server id's
+//Normal
+const supportRoleID = '695715629189169322';
+const ideeChannel = '695765656921964555';
+//const createTicketRoleID = '';
+const closeTicketCategory = '680478197795520614';
+const renameTicketCategory = '680478197795520614';
+const payloadMessageID = '698249668534075482';
+
+//Developer
+const createTicketChannel = '695985618785927199';
+const devCloseCategory = '680478197795520614';
+
+
+
 bot.on("ready", async () => {
 
   console.log(`${bot.user.username} is online!`)
@@ -60,7 +75,7 @@ bot.on("guildMemberAdd", member =>{
     //const bota = new Client();
 
 bot.on("message", message => {
-  if(message.channel.id === "695765656921964555") message.react("👍"), message.react("👎");
+  if(message.channel.id === ideeChannel) message.react("👍"), message.react("👎");
 
   if(message.author.bot){
     if(message.embeds.length === 1 && message.embeds[0].description.startsWith('Reageer')){
@@ -92,7 +107,7 @@ bot.on("message", message => {
 
   if(commands) commands.run(bot, message, args);
 
-  if(message.content.toLowerCase() === '!createticket' && message.channel.id === '695985618785927199'){
+  if(message.content.toLowerCase() === '!createticket' && message.channel.id === createTicketChannel){
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
     let guild = message.guild;
     guild.channels.create(`${message.author.username}-ticket`, {
@@ -108,7 +123,7 @@ bot.on("message", message => {
         },
         {
           allow: 'VIEW_CHANNEL',
-          id: '695715629189169322'
+          id: supportRoleID
         }
       ]
     }).then(channel => {
@@ -116,7 +131,7 @@ bot.on("message", message => {
 
     let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username.toLowerCase()}-ticket`);
 
-    var support = message.guild.roles.cache.get(`695715629189169322`);
+    var support = message.guild.roles.cache.get(supportRoleID);
 
     var testEmbed = new discord.MessageEmbed()
       .setTitle(`${message.guild.name} | Tickets`, message.guild.iconURL)
@@ -137,7 +152,7 @@ bot.on("message", message => {
   }
   if(message.content.toLowerCase() === '!close') {
     var endMS = "10000"
-    const categoryId = '680478197795520614'
+    const categoryId = closeTicketCategory
     if(message.channel.parentID == categoryId){
       var closeEmbed = new discord.MessageEmbed()
         .setTitle(`${message.guild.name} Tickets`, message.guild.iconURL)
@@ -161,7 +176,7 @@ bot.on("message", message => {
     if(leArgs[0]){
       if(leArgs[1]) return message.channel.send("Gebruik een - in plaats van een spatie!");
 
-      const categoryId = '680478197795520614'
+      const categoryId = renameTicketCategory
 
       if(message.channel.parentID == categoryId){
         message.channel.setName(leArgs[0]);
@@ -184,7 +199,7 @@ bot.on("message", message => {
 
   //Developer debug close.
   if(message.content.toLowerCase() === '!devclose') {
-    const categoryId = '680478197795520614'
+    const categoryId = devCloseCategory
 
     if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
@@ -201,7 +216,7 @@ bot.on('raw', payload => {
   if(payload.t === 'MESSAGE_REACTION_ADD') {
     if(payload.d.emoji.name != '🎟️')
       return;
-    if(payload.d.message_id === '698249668534075482') {
+    if(payload.d.message_id === payloadMessageID) {
       let channel = bot.channels.cache.get(payload.d.channel_id)
       if(channel.message.has(payload.d.message_id)) {
         return;
@@ -238,7 +253,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
         },
         {
           allow: 'VIEW_CHANNEL',
-          id: '695715629189169322'
+          id: supportRoleID
         }
       ]
     }).then(channel => {
@@ -246,7 +261,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
     //let supportChannel = reaction.message.guild.channels.cache.find(c => c.name == `${user.username.toLowerCase()}-ticket`);
 
-    var support = reaction.message.guild.roles.cache.get(`695715629189169322`);
+    var support = reaction.message.guild.roles.cache.get(supportRoleID);
 
     var supportEmbed = new discord.MessageEmbed()
       .setTitle(`${reaction.message.guild.name} | Tickets`, reaction.message.guild.iconURL)
