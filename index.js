@@ -235,7 +235,7 @@ bot.on('raw', payload => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-  if(!reaction.message.channel.id === '637019523882549258') return;
+  if(reaction.message.channel.id === '637019523882549258'){
   if(user.bot) return;
     //Dit hieronder checked of er al een ticket is maar dat is niet nodig.
     ////if(reaction.message.guild.channels.some(channel => channel.name.toLowerCase() === user.username + '-ticket')) message.author.send("Je hebt al een ticket!");
@@ -280,6 +280,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
     }).catch(console.error);
+  };
 });
 
 
