@@ -171,7 +171,7 @@ bot.on("message", message => {
   }
 
   if(leCommand === 'rename'){
-    if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
+    if(!message.member.roles.has(supportRoleID)) return;
     if(leArgs[0]){
       if(leArgs[1]) return message.channel.send("Gebruik een - in plaats van een spatie!");
 
