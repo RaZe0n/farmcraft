@@ -126,7 +126,7 @@ bot.on("message", message => {
         }
       ]
     }).then(channel => {
-    let category = message.guild.channels.cache.find(c => c.name == "tickets" && c.type == "category");
+    let category = message.guild.channels.cache.find(c => c.name == "support" && c.type == "category");
 
     let supportChannel = message.guild.channels.cache.find(c => c.name == `${message.author.username.toLowerCase()}-ticket`);
 
