@@ -32,16 +32,15 @@ fs.readdir("./commands/", (err, files) => {
 
 //Server id's
 //Normal
-const supportRoleID = '695715629189169322';
-const ideeChannel = '695765656921964555';
-//const createTicketRoleID = '';
-const closeTicketCategory = '680478197795520614';
-const renameTicketCategory = '680478197795520614';
+const supportRoleID = '637029588605599782';
+const ideeChannel = '675729997054345284';
+const closeTicketCategory = '637031003952644118';
+const renameTicketCategory = '637031003952644118';
 const payloadMessageID = '698249668534075482';
 
 //Developer
-const createTicketChannel = '695985618785927199';
-const devCloseCategory = '680478197795520614';
+const createTicketChannel = '637019523882549258';
+const devCloseCategory = '637031003952644118';
 
 
 
@@ -63,7 +62,7 @@ bot.on("guildMemberAdd", member =>{
       .setTimestamp()
       .setFooter("Gejoined:");
 
-    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "welkom");
+    const welcomeChannel = member.guild.channels.cache.find(c => c.name === "「👋」welkom");
     if(!welcomeChannel) return;
 
     welcomeChannel.send(welcomeEmbed);
