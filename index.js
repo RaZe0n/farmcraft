@@ -74,7 +74,7 @@ bot.on("guildMemberAdd", member =>{
     //const bota = new Client();
 
 bot.on("message", message => {
-  if(message.channel.id === ideeChannel) message.react("👍"), message.react("👎");
+  if(message.channel.id === ideeChannel) message.react(":Like:695776238521942077"), message.react(":Dislike:695776219496710216");
 
   if(message.author.bot){
     if(message.embeds.length === 1 && message.embeds[0].description.startsWith('Reageer')){
