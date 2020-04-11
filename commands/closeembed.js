@@ -2,6 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) =>{
 
+  if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
   var closeEmbed = new discord.MessageEmbed()
     //.setTitle(`Welkom op de server` )
